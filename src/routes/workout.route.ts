@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import WorkoutController from '../controllers/workout.controller';
-import { CreateUserDto } from '../dtos/users.dto';
 
 class WorkoutRoute {
   public router = Router();
@@ -11,7 +10,8 @@ class WorkoutRoute {
   }
 
   private initializeRoutes() {
-    this.router.post('/', this.workoutController.getWorkouts);
+    this.router.get('/workouts', this.workoutController.getWorkouts);
+    this.router.get('/workouts/:workoutId', this.workoutController.getWorkoutDetails);
   }
 }
 
